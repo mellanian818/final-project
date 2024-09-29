@@ -4,7 +4,7 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit"
 import axios from "axios"
 
 export const fetchNews = createAsyncThunk("news/fetchNews", async () => {
-  const apiKey = "lcmw9E6AWKrJ23OyuxmN1iKwmXJRLeiG"
+  const apiKey = import.meta.env.VITE_NYT_API_KEY
   const response = await axios.get(
     `https://api.nytimes.com/svc/search/v2/articlesearch.json?q=Peace&api-key=${apiKey}`
   )
