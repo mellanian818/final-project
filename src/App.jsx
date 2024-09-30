@@ -6,6 +6,7 @@ import ComparisonPage from "./components/CountryComparison"
 import NewsPage from "./pages/NewsPage"
 import CountryComparisonForm from "./components/CountryComparisonForm"
 import Navbar from "./components/Navbar"
+import Footer from "./components/Footer"
 
 const App = () => {
   return (
@@ -23,6 +24,7 @@ const App = () => {
             <Route path="/news" element={<NewsPage />} />
           </Routes>
         </main>
+        <Footer />
       </div>
     </Router>
   )

@@ -1,1 +1,0 @@
-//Daftar negara berdasarkan peringkat
