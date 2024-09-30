@@ -1,7 +1,18 @@
-//Hasil perbandingan negara
+// Hasil perbandingan negara
 import React from "react"
 import { useSelector } from "react-redux"
 import { useParams } from "react-router-dom"
+
+const formatPopulation = (population) => {
+  if (population >= 1_000_000_000) {
+    return (population / 1_000_000_000).toFixed(1) + "B" // Miliar
+  } else if (population >= 1_000_000) {
+    return (population / 1_000_000).toFixed(1) + "M" // Juta
+  } else if (population >= 1_000) {
+    return (population / 1_000).toFixed(1) + "K" // Ribu
+  }
+  return population.toString() // Jika kurang dari 1000, tampilkan angka biasa
+}
 
 const ComparisonPage = () => {
   const { page1, page2 } = useParams()
@@ -35,10 +46,10 @@ const ComparisonPage = () => {
           <tr>
             <td className="border px-6 py-4 font-semibold">Population</td>
             <td className="border px-6 py-4">
-              {country1.population.toLocaleString()}
+              {formatPopulation(country1.population)}
             </td>
             <td className="border px-6 py-4">
-              {country2.population.toLocaleString()}
+              {formatPopulation(country2.population)}
             </td>
           </tr>
           <tr>
@@ -79,49 +90,6 @@ const ComparisonPage = () => {
           </tr>
         </tbody>
       </table>
-      {/* <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <div className="bg-white p-6 rounded-lg shadow-md">
-          <h3 className="text-2xl font-bold mb-4">{country1.name.common}</h3>
-          <p>
-            <strong>Population:</strong> {country1.population.toLocaleString()}
-          </p>
-          <p>
-            <strong>Region:</strong> {country1.region}
-          </p>
-          <p>
-            <strong>Capital:</strong> {country1.capital?.[0] || "N/A"}
-          </p>
-          <p>
-            <strong>Status:</strong> {country1.status}
-          </p>
-          <img
-            src={country1.flags.png}
-            alt={country1.name.common}
-            className="w-16 h-10 object-cover"
-          />
-        </div>
-
-        <div className="bg-white p-6 rounded-lg shadow-md">
-          <h3 className="text-2xl font-bold mb-4">{country2.name.common}</h3>
-          <p>
-            <strong>Population:</strong> {country2.population.toLocaleString()}
-          </p>
-          <p>
-            <strong>Region:</strong> {country2.region}
-          </p>
-          <p>
-            <strong>Capital:</strong> {country2.capital?.[0] || "N/A"}
-          </p>
-          <p>
-            <strong>Status:</strong> {country2.status}
-          </p>
-          <img
-            src={country2.flags.png}
-            alt={country2.name.common}
-            className="w-16 h-10 object-cover"
-          />
-        </div>
-      </div> */}
     </div>
   )
 }

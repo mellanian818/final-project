@@ -10,13 +10,20 @@ import Navbar from "./components/Navbar"
 const App = () => {
   return (
     <Router>
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<LandingPage />} />
-        <Route path="/compare" element={<CountryComparisonForm />} />
-        <Route path="/compare/:page1/n/:page2" element={<ComparisonPage />} />
-        <Route path="/news" element={<NewsPage />} />
-      </Routes>
+      <div className="min-h-screen flex flex-col">
+        <Navbar />
+        <main className="flex-grow p-4 sm:p-6 lg:p-8">
+          <Routes>
+            <Route path="/" element={<LandingPage />} />
+            <Route path="/compare" element={<CountryComparisonForm />} />
+            <Route
+              path="/compare/:page1/n/:page2"
+              element={<ComparisonPage />}
+            />
+            <Route path="/news" element={<NewsPage />} />
+          </Routes>
+        </main>
+      </div>
     </Router>
   )
 }

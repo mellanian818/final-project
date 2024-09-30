@@ -2,3 +2,34 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Responsif untuk layar kecil */
+@media screen and (max-width: 768px) {
+  table {
+    display: block;
+    overflow-x: auto; /* Tambahkan scroll horizontal */
+    white-space: nowrap; /* Supaya teks tidak terpotong */
+  }
+
+  th,
+  td {
+    padding: 8px;
+    font-size: 14px; /* Ukuran teks lebih kecil untuk layar kecil */
+  }
+
+  h1 {
+    font-size: 24px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  th,
+  td {
+    padding: 6px;
+    font-size: 12px; /* Lebih kecil lagi untuk mobile */
+  }
+
+  h1 {
+    font-size: 20px;
+  }
+}

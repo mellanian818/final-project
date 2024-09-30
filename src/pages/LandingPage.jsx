@@ -1,4 +1,3 @@
-// src/pages/LandingPage.jsx
 import React, { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { fetchCountries } from "../store/countrySlice"
@@ -13,7 +12,7 @@ const LandingPage = () => {
     dispatch(fetchCountries())
   }, [dispatch])
 
-  // Hitung index dari berita yang ditampilkan di setiap halaman
+  // Hitung index dari negara yang ditampilkan di setiap halaman
   const indexOfLastCountry = currentPage * countryPerPage
   const indexOfFirstCountry = indexOfLastCountry - countryPerPage
   const currentCountry = countries.slice(
@@ -33,49 +32,77 @@ const LandingPage = () => {
         <h1 className="text-4xl font-bold text-center mb-8 mt-8">
           Country Rankings
         </h1>
-        <table className="min-w-full border-collapse block md:table bg-white shadow-lg">
-          <thead className="block md:table-header-group">
-            <tr className="border border-gray-300 md:table-row">
-              <th className="border border-gray-300 md:table-cell px-4 py-2">
-                Flag
-              </th>
-              <th className="border border-gray-300 md:table-cell px-4 py-2">
-                Name
-              </th>
-              <th className="border border-gray-300 md:table-cell px-4 py-2">
-                Population
-              </th>
-              <th className="border border-gray-300 md:table-cell px-4 py-2">
-                Code
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            {currentCountry.map((country) => (
-              <tr
-                key={country.cca3}
-                className="text-center hover:bg-gray-100 transition duration-300"
-              >
-                <td className="border border-gray-300 px-4 py-2 text-center">
-                  <img
-                    src={country.flags.png}
-                    alt={country.name.common}
-                    className="w-16 h-10 object-cover inline-block"
-                  />
-                </td>
-                <td className="border border-gray-300 block md:table-cell px-4 py-2">
-                  {country.name.common}
-                </td>
-                <td className="border border-gray-300 block md:table-cell px-4 py-2">
-                  {country.formattedPopulation}
-                </td>
-                <td className="border border-gray-300 block md:table-cell px-4 py-2">
-                  {country.cca2}
-                </td>
+
+        {/* Tabel untuk layar besar */}
+        <div className="hidden md:block overflow-x-auto">
+          <table className="min-w-full table-auto border-collapse bg-white shadow-lg">
+            <thead>
+              <tr className="border border-gray-300">
+                <th className="border border-gray-300 px-2 sm:px-4 py-2 text-sm sm:text-base">
+                  Flag
+                </th>
+                <th className="border border-gray-300 px-2 sm:px-4 py-2 text-sm sm:text-base">
+                  Name
+                </th>
+                <th className="border border-gray-300 px-2 sm:px-4 py-2 text-sm sm:text-base">
+                  Population
+                </th>
+                <th className="border border-gray-300 px-2 sm:px-4 py-2 text-sm sm:text-base">
+                  Code
+                </th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {currentCountry.map((country) => (
+                <tr
+                  key={country.cca3}
+                  className="text-center hover:bg-gray-100 transition duration-300"
+                >
+                  <td className="border border-gray-300 px-4 py-2 text-center">
+                    <img
+                      src={country.flags.png}
+                      alt={country.name.common}
+                      className="w-12 h-8 sm:w-16 sm:h-10 object-cover mx-auto"
+                    />
+                  </td>
+                  <td className="border border-gray-300 px-4 py-2">
+                    {country.name.common}
+                  </td>
+                  <td className="border border-gray-300 px-4 py-2">
+                    {country.formattedPopulation}
+                  </td>
+                  <td className="border border-gray-300 px-4 py-2">
+                    {country.cca2}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+
+        {/* Daftar responsif untuk layar kecil */}
+        <div className="block md:hidden">
+          {currentCountry.map((country) => (
+            <div
+              key={country.cca3}
+              className="border border-gray-300 mb-4 p-4 rounded-md bg-white shadow-md"
+            >
+              <div className="flex items-center">
+                <img
+                  src={country.flags.png}
+                  alt={country.name.common}
+                  className="w-12 h-8 sm:w-16 sm:h-10 object-cover mr-4"
+                />
+                <div>
+                  <h3 className="font-bold">{country.name.common}</h3>
+                  <p>Population: {country.formattedPopulation}</p>
+                  <p>Code: {country.cca2}</p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
         {/* Pagination */}
         <div className="flex justify-center items-center mt-8 mb-8">
           <ul className="inline-flex space-x-2">
@@ -83,7 +110,7 @@ const LandingPage = () => {
               <li key={index}>
                 <button
                   onClick={() => paginate(index + 1)}
-                  className={`px-4 py-2 rounded-md border transition ${
+                  className={`px-2 sm:px-4 py-1 sm:py-2 rounded-md border transition ${
                     currentPage === index + 1
                       ? "bg-blue-500 text-white"
                       : "bg-white text-blue-500 hover:bg-blue-100"
