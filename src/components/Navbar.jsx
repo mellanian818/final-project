@@ -46,37 +46,43 @@ const Navbar = () => {
       <ul
         className={`${
           isOpen ? "block" : "hidden"
-        } absolute top-16 left-0 right-0 bg-blue-500 md:flex md:items-center md:space-x-8 md:static md:bg-transparent`}
+        } md:flex md:items-center md:space-x-8 absolute top-full left-0 w-full md:static md:w-auto bg-blue-500 md:bg-transparent z-10 text-center`}
       >
-        <li>
+        <li className="w-full md:w-auto">
           <NavLink
             to="/"
             className={({ isActive }) =>
-              isActive ? "underline text-yellow-300" : "hover:underline"
+              isActive
+                ? "block py-2 md:inline-block underline text-yellow-300"
+                : "block py-2 md:inline-block hover:bg-blue-600 md:hover:bg-transparent md:hover:text-gray-300 transition-colors duration-300"
             }
-            onClick={() => setIsOpen(false)} // Menutup menu saat link diklik
+            onClick={() => setIsOpen(false)}
           >
             Home
           </NavLink>
         </li>
-        <li>
+        <li className="w-full md:w-auto">
           <NavLink
             to="/compare"
             className={({ isActive }) =>
-              isActive ? "underline text-yellow-300" : "hover:underline"
+              isActive
+                ? "block py-2 md:inline-block underline text-yellow-300"
+                : "block py-2 md:inline-block hover:bg-blue-600 md:hover:bg-transparent md:hover:text-gray-300 transition-colors duration-300"
             }
-            onClick={() => setIsOpen(false)} // Menutup menu saat link diklik
+            onClick={() => setIsOpen(false)}
           >
             Compare Countries
           </NavLink>
         </li>
-        <li>
+        <li className="w-full md:w-auto">
           <NavLink
             to="/news"
             className={({ isActive }) =>
-              isActive ? "underline text-yellow-300" : "hover:underline"
+              isActive
+                ? "block py-2 md:inline-block underline text-yellow-300"
+                : "block py-2 md:inline-block hover:bg-blue-600 md:hover:bg-transparent md:hover:text-gray-300 transition-colors duration-300"
             }
-            onClick={() => setIsOpen(false)} // Menutup menu saat link diklik
+            onClick={() => setIsOpen(false)}
           >
             News
           </NavLink>
