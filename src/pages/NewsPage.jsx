@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { fetchNews } from "../store/newsSlice"
-import loadingMap from "../assets/loading-cargando.gif" // Import animasi atau gambar loading
+import loadingMap from "../assets/loading-cargando.gif" // import gambar loading
 
 const NewsPage = () => {
   const dispatch = useDispatch()
@@ -10,7 +10,7 @@ const NewsPage = () => {
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    // Fetch news data and handle loading state
+    // Fetch news data API dan handle loading state
     const fetchData = async () => {
       setLoading(true)
       await dispatch(fetchNews())
