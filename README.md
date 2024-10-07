@@ -1,4 +1,4 @@
-# React + Vite "Country Rank Population Website
+# React + Vite "Country Rank Population Website"
 
 Deploy : https://final-project-mellani.vercel.app/
 
@@ -9,14 +9,11 @@ Website ini adalah aplikasi React yang menampilkan peringkat populasi negara-neg
 - https://developer.nytimes.com/apis
 
 ## Fitur
-
-- **Tema Dark/Light Mode**: Pengguna dapat beralih antara tema terang dan gelap.
 - **Navigasi Mudah**: Menu navigasi yang intuitif untuk menjelajahi halaman berbeda.
 - **Perbandingan Negara**: Pengguna dapat membandingkan data populasi antar negara.
 - **Berita**: Menyediakan informasi terbaru terkait negara.
 
 ## Teknologi yang Digunakan
-
 - **React**: Untuk membangun antarmuka pengguna.
 - **Vite**: Sebagai bundler modern yang menawarkan waktu pengembangan yang lebih cepat.
 - **Tailwind CSS**: Untuk desain responsif dan styling.
