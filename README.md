@@ -1,4 +1,29 @@
-# React + Vite
+# React + Vite "Country Rank Population Website
+
+Deploy : https://final-project-mellani.vercel.app/
+
+Website ini adalah aplikasi React yang menampilkan peringkat populasi negara-negara di seluruh dunia yang didapatkan dari API. Dengan menggunakan Vite sebagai alat pembangunan, aplikasi ini menawarkan pengalaman pengguna yang cepat dan responsif.
+
+## API
+- https://restcountries.com/
+- https://developer.nytimes.com/apis
+
+## Fitur
+
+- **Tema Dark/Light Mode**: Pengguna dapat beralih antara tema terang dan gelap.
+- **Navigasi Mudah**: Menu navigasi yang intuitif untuk menjelajahi halaman berbeda.
+- **Perbandingan Negara**: Pengguna dapat membandingkan data populasi antar negara.
+- **Berita**: Menyediakan informasi terbaru terkait negara.
+
+## Teknologi yang Digunakan
+
+- **React**: Untuk membangun antarmuka pengguna.
+- **Vite**: Sebagai bundler modern yang menawarkan waktu pengembangan yang lebih cepat.
+- **Tailwind CSS**: Untuk desain responsif dan styling.
+- **React Router**: Untuk navigasi di antara halaman-halaman dalam aplikasi.
+
+
+
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
