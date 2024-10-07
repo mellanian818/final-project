@@ -27,7 +27,7 @@ const NewsPage = () => {
       </h1>
 
       {loading ? (
-        // Gambar animasi loading map
+        // Gambar animasi loading rendering
         <div className="flex justify-center items-center h-64">
           <img src={loadingMap} alt="Loading Map..." className="w-64 h-64" />
         </div>

@@ -1,5 +1,3 @@
-//Form untuk membandingkan negara
-// src/components/CountryComparisonForm.jsx
 import React, { useState, useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import Select from "react-select"
@@ -25,12 +23,21 @@ const CountryComparisonForm = () => {
     label: country.name.common,
   }))
 
+  // Filter countryOptions untuk Country 1 dan Country 2
+  const countryOptionsForCountry1 = countryOptions.filter(
+    (country) => country.value !== (selectedCountry2?.value || null)
+  )
+
+  const countryOptionsForCountry2 = countryOptions.filter(
+    (country) => country.value !== (selectedCountry1?.value || null)
+  )
+
   const handleCompare = () => {
     if (selectedCountry1 && selectedCountry2) {
       // Redirect ke halaman hasil perbandingan
       navigate(`/compare/${selectedCountry1.value}/n/${selectedCountry2.value}`)
     } else {
-      alert("Please select both countries to compare.")
+      alert("Please select both countries to compare.") // memunculkan apabila tidak select
     }
   }
 
@@ -40,7 +47,7 @@ const CountryComparisonForm = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {/* Select untuk Country 1 */}
         <Select
-          options={countryOptions}
+          options={countryOptionsForCountry1} // Gunakan opsi yang difilter
           value={selectedCountry1}
           onChange={setSelectedCountry1}
           placeholder="Select Country 1"
@@ -49,7 +56,7 @@ const CountryComparisonForm = () => {
 
         {/* Select untuk Country 2 */}
         <Select
-          options={countryOptions}
+          options={countryOptionsForCountry2} // Gunakan opsi yang difilter
           value={selectedCountry2}
           onChange={setSelectedCountry2}
           placeholder="Select Country 2"

@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { fetchCountries } from "../store/countrySlice"
 import loadingMap from "../assets/loading-cargando.gif" // Ganti dengan path gambar loading Anda
 
+//state management untuk ngambil data
 const LandingPage = () => {
   const dispatch = useDispatch()
   const countries = useSelector((state) => state.countries.data || [])
@@ -22,7 +23,7 @@ const LandingPage = () => {
     indexOfLastCountry
   )
 
-  // Ganti halaman
+  // Ganti halaman/ubah halaman yang aktif ketika pagination di klik
   const paginate = (pageNumber) => setCurrentPage(pageNumber)
 
   // Hitung jumlah halaman yang diperlukan
@@ -36,7 +37,7 @@ const LandingPage = () => {
         </h1>
 
         {loading ? (
-          // Gambar animasi loading map
+          // Gambar animasi loading
           <div className="flex justify-center items-center h-64">
             <img src={loadingMap} alt="Loading Map..." className="w-64 h-64" />
           </div>

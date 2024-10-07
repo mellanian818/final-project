@@ -21,7 +21,7 @@ const ComparisonPage = () => {
   const country1 = countries.find((country) => country.cca2 === page1)
   const country2 = countries.find((country) => country.cca2 === page2)
 
-  if (!country1 || !country2) return <p>Countries not found for comparison.</p>
+  // if (!country1 || !country2) return <p>Countries not found for comparison.</p>
 
   return (
     <div className="max-w-4xl mx-auto bg-gray-100 p-8 rounded-lg shadow-md mt-8">
