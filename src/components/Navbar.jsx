@@ -8,6 +8,11 @@ const Navbar = () => {
     setIsOpen(!isOpen)
   }
 
+  // Fungsi untuk menutup menu ketika item diklik
+  const closeMenu = () => {
+    setIsOpen(false)
+  }
+
   return (
     <nav className="bg-blue-900 border-gray-200 text-white">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
@@ -66,6 +71,7 @@ const Navbar = () => {
                     ? "block py-2 px-3 text-white bg-yellow-500 rounded-full"
                     : "block py-2 px-3 text-white hover:bg-blue-800"
                 }
+                onClick={closeMenu} // Menutup menu ketika item diklik
               >
                 Home
               </NavLink>
@@ -78,6 +84,7 @@ const Navbar = () => {
                     ? "block py-2 px-3 text-white bg-yellow-500 rounded-full"
                     : "block py-2 px-3 text-white hover:bg-blue-800"
                 }
+                onClick={closeMenu} // Menutup menu ketika item diklik
               >
                 Compare Countries
               </NavLink>
@@ -90,6 +97,7 @@ const Navbar = () => {
                     ? "block py-2 px-3 text-white bg-yellow-500 rounded-full"
                     : "block py-2 px-3 text-white hover:bg-blue-800"
                 }
+                onClick={closeMenu} // Menutup menu ketika item diklik
               >
                 News
               </NavLink>
